@@ -16,14 +16,29 @@ public class Character {
         System.out.println("Experience (XP): " + experience);
     }
     public static void setStats(int strength, int defense, int health, int maxHealth, int experience) {
+        if(playerData.containsKey("Strength")) {
+            playerData.remove("Strength");
+        }
+        if(playerData.containsKey("Defense")) {
+            playerData.remove("Defense");
+        }
+        if(playerData.containsKey("Health")) {
+            playerData.remove("Health");
+        }
+        if(playerData.containsKey("Max Health")) {
+            playerData.remove("Max Health");
+        }
+        if(playerData.containsKey("Experience")) {
+            playerData.remove("Experience");
+        }
         playerData.put("Strength", strength);
         playerData.put("Defense", defense);
         playerData.put("Health", health);
         playerData.put("Max Health", maxHealth);
         playerData.put("Experience", experience);
     }
-    public static void setDefaultStats(Character character) {
-        switch (character.type) {
+    public static void setDefaultStats() {
+        switch (type) {
             case "Warrior":
                setStats(15, 15, 35, 35, 0);
             case "Sorcerer":
@@ -31,8 +46,19 @@ public class Character {
                 magicAbility = true;
             case "Healer":
                setStats(10, 10, 50, 50, 0);
-            default:
+            case "Paladin":
+                setStats(15, 15, 35, 35, 0);
+            case "Default":
+                setStats(15, 15, 15, 15, 0);
+                default:
                 setStats(15, 15, 15, 15, 0);
         }
+    }
+    public static void takeDamage(Character character, int damage) {
+        character.health -= damage;
+    }
+    public static void heal(Character character) {
+        character.health += 5;
+        System.out.println("You have gained 5 HP.");
     }
 }

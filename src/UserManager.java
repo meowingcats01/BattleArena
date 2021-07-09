@@ -1,8 +1,11 @@
 import java.util.Scanner;
 
 public class UserManager {
+    // Initialization
     static Scanner playerInput = new Scanner(System.in);
     static boolean error = false;
+
+    // Get user's input (can be modified based on needed response type)
     static String getUserInput(String input) {
         String result = "";
         System.out.println(input);
@@ -76,11 +79,13 @@ public class UserManager {
         }
         return result;
     }
+
     // Get user's choice from a selection of choices
-    static int getUserSelection(String... options) {
+    static int getUserSelection(String input, String... options) {
+        System.out.println(input);
         int result = 0;
-        System.out.println("Choose one of the following:");
         int cycle = 1;
+        System.out.println("Choose one of the following:");
         for (String s: options) {
            System.out.println("(" + cycle + ") " + s);
            cycle++;
@@ -105,6 +110,7 @@ public class UserManager {
         }
         return result;
     }
+
     // Prompt user to press a key to continue
     static void waitForUser() {
         System.out.println("Press Enter to continue.");
