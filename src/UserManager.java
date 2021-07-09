@@ -16,6 +16,7 @@ public class UserManager {
                     error = false;
                 } catch (Exception e1) {
                     System.out.println("Sorry, there was an error. Please try again.");
+                    error = true;
                 }
             }
         }
@@ -31,6 +32,7 @@ public class UserManager {
                         error = false;
                     } catch (Exception e1) {
                         System.out.println("Sorry, there was an error. Please try again.");
+                        error = true;
                     }
                 }
             }
@@ -44,12 +46,14 @@ public class UserManager {
             result = playerInput.nextInt();
         } catch (Exception e) {
             System.out.println("Sorry, there was an error. Please try again.");
+            error = true;
             while (error) {
                 try {
                     result = playerInput.nextInt();
                     error = false;
                 } catch (Exception e1) {
                     System.out.println("Sorry, there was an error. Please try again.");
+                    error = true;
                 }
             }
         }
@@ -65,6 +69,7 @@ public class UserManager {
                         error = false;
                     } catch (Exception e1) {
                         System.out.println("Sorry, there was an error. Please try again.");
+                        error = true;
                     }
                 }
             }

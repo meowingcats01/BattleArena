@@ -7,7 +7,6 @@ public class Game {
     static Character hero = new Character();
     static Healer healer = new Healer();
     static int userSelection;
-    static boolean error = false;
     static UserManager userManager = new UserManager();
 
     public static void main(String[] args) {
